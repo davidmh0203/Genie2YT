@@ -1,0 +1,47 @@
+<!-- templates/preview.html -->
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>미리보기</title>
+</head>
+<body>
+  <h1>스크랩 결과</h1>
+
+  {% if debug and raw_html_path %}
+    <p><a href="{{ raw_html_path }}" target="_blank">[디버그] 원본 HTML 보기</a></p>
+  {% endif %}
+
+  {% if stats %}
+    <ul>
+      <li>rows_found: {{ stats.rows_found }}</li>
+      <li>table_hits: {{ stats.table_hits }}</li>
+      <li>card_hits: {{ stats.card_hits }}</li>
+      <li>success: {{ stats.success }}</li>
+      <li>skipped_no_title: {{ stats.skipped_no_title }}</li>
+      <li>skipped_no_artist: {{ stats.skipped_no_artist }}</li>
+    </ul>
+  {% endif %}
+
+  {% if songs and songs|length %}
+    <form method="post" action="{{ url_for('to_youtube') }}?debug={{ 1 if debug else 0 }}">
+      <input type="text" name="playlist_id" placeholder="YouTube 플레이리스트 ID (옵션)">
+      <ol>
+        {% for s in songs %}
+          <li>
+            <label>
+              <input type="checkbox" name="songs[]" value="{{ s }}" checked>
+              {{ s }}
+            </label>
+          </li>
+        {% endfor %}
+      </ol>
+      <button type="submit">YouTube에 추가</button>
+    </form>
+  {% else %}
+    <p>추출된 곡이 없습니다.</p>
+  {% endif %}
+
+  <p><a href="{{ url_for('index') }}">← 돌아가기</a></p>
+</body>
+</html>
