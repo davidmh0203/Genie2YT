@@ -1,54 +1,33 @@
 class ArrayQueue:
-    """
-    FIFO(First-In, First-Out) 원칙을 따르는 큐 자료구조 클래스.
-    Python의 기본 list를 사용하여 구현합니다.
-    """
+
 
     def __init__(self):
-        """새로운 빈 큐를 초기화합니다."""
         self.items = []
 
     def enqueue(self, item):
-        """
-        큐의 맨 뒤(rear)에 데이터를 추가합니다. (삽입)
-        list.append()는 효율적인 연산입니다. (O(1))
-        :param item: 큐에 추가할 데이터
-        """
+
         self.items.append(item)
 
     def dequeue(self):
-        """
-        큐의 맨 앞(front)에서 데이터를 제거하고 반환합니다. (삭제)
-        list.pop(0)는 매우 비효율적인 연산입니다. (O(n))
-        :return: 큐의 맨 앞에 있던 데이터 또는 None
-        """
+
         if self.is_empty():
             print("오류: 큐가 비어있습니다.")
             return None
         return self.items.pop(0)
 
     def peek(self):
-        """
-        큐의 맨 앞 데이터를 제거하지 않고 확인합니다.
-        :return: 큐의 맨 앞에 있는 데이터 또는 None
-        """
+
         if self.is_empty():
             print("오류: 큐가 비어있습니다.")
             return None
         return self.items[0]
 
     def is_empty(self):
-        """
-        큐가 비어있는지 여부를 확인합니다.
-        :return: 큐가 비어있으면 True, 아니면 False
-        """
+
         return len(self.items) == 0
 
     def size(self):
-        """
-        큐에 들어있는 데이터의 개수를 반환합니다.
-        :return: 큐의 크기 (정수)
-        """
+
         return len(self.items)
 
 

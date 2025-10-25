@@ -1,1 +1,7 @@
 credentials.json
+.env
+# Secrets and Keys
+
+# Python auto-generated files
+**/__pycache__/
+*.pyc

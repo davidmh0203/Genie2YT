@@ -25,6 +25,13 @@
 
     <div class="text-center">
       <a href="/login" class="btn btn-outline-secondary">🔐 유튜브 로그인으로 시작하기</a>
+      {% if user %}
+  <p>안녕하세요, {{ user['name'] }}님!</p>
+  <a href="/logout">로그아웃</a>
+{% else %}
+  <a href="/login">구글 로그인</a>
+{% endif %}
+
     </div>
   </div>
 </body>
