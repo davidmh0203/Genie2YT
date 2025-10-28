@@ -1,1 +1,31 @@
-pip install authlib google-auth google-auth-oauthlib
+# Flask & 기본 웹서버
+Flask==3.0.3
+Werkzeug==3.0.4
+Flask-Cors==4.0.0
+Flask-Login==0.6.3
+Flask-WTF==1.2.1
+itsdangerous==2.2.0
+Jinja2==3.1.4
+
+# 웹 크롤링
+requests==2.31.0
+beautifulsoup4==4.12.2
+lxml==4.9.3
+selenium==4.21.0
+urllib3==2.2.2
+
+# 구글 API (YouTube OAuth)
+google-auth==2.33.0
+google-auth-oauthlib==1.2.0
+google-auth-httplib2==0.2.0
+google-api-python-client==2.138.0
+oauthlib==3.2.2
+
+# 데이터 처리
+pandas==2.2.2
+
+# 서버 배포 & HTTPS
+gunicorn==22.0.0
+
+# 개발 편의
+python-dotenv==1.0.1
